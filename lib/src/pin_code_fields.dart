@@ -213,6 +213,9 @@ class PinCodeTextField extends StatefulWidget {
 
   /// Builds separator children
   final IndexedWidgetBuilder? separatorBuilder;
+  
+  /// Error Text Style
+  final TextStyle? errorStyle;
 
   PinCodeTextField({
     Key? key,
@@ -279,6 +282,7 @@ class PinCodeTextField extends StatefulWidget {
     this.useExternalAutoFillGroup = false,
     this.scrollPadding = const EdgeInsets.all(20),
     this.separatorBuilder,
+    this.errorStyle,
   })  : assert(obscuringCharacter.isNotEmpty),
         super(key: key);
 
@@ -770,6 +774,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
           // using same as background color so tha it can blend into the view
           cursorWidth: 0.01,
           decoration: InputDecoration(
+             errorStyle: widget.errorStyle,
             contentPadding: const EdgeInsets.all(0),
             border: InputBorder.none,
             fillColor: widget.backgroundColor,
